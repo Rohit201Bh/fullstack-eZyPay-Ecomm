@@ -1,9 +1,9 @@
-const express = require('express');
+import express from'express';
 const router = express.Router(); 
-const Razorpay = require('razorpay');
-const dotenv = require('dotenv');
-const crypto = require('crypto');
-const PaymentModel = require('../Models/Payment');
+import Razorpay from'razorpay';
+import dotenv from'dotenv';
+import crypto from 'crypto';
+import PaymentModel from'../Models/Payment';
 dotenv.config();
 
 const razorpayInstance = new Razorpay({

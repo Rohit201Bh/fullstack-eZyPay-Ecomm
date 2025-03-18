@@ -1,6 +1,6 @@
-const express = require('express');
+import express from'express';
 const router = express.Router();
-const ProductModel = require('../Models/AddProductSchema');
+import ProductModel from '../Models/AddProductSchema';
 
 router.post('/add', async (req, resp) => {
     try {

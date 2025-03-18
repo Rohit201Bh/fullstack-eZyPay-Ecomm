@@ -1,19 +1,19 @@
-const payment = require('./Routes/Payment')
-const User = require('./Models/UserSchema')
-const AddProduct = require('./Routes/AddProduct')
-const express = require('express')
+import payment from './Routes/Payment.js';
+import User from'./Models/UserSchema';
+import AddProduct from './Routes/AddProduct';
+import express from'express'
 const app = express()
 require('./Models/database')
 
-const bodyparser = require('body-parser')
-const cors = require('cors')
+import bodyparser from'body-parser';
+import cors from 'cors';
 import path from "path";
 
 app.use(bodyparser.json())
 app.use(cors())
 app.use(express.json())
 
-const jwt = require('jsonwebtoken')
+import jwt from 'jsonwebtoken';
 const _dirname = path.resolve();
 
 
