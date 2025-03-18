@@ -3,7 +3,7 @@ import User from'./Models/UserSchema.js';
 import AddProduct from './Routes/AddProduct.js';
 import express from'express'
 const app = express()
-require('./Models/database')
+import './Models/database';
 
 import bodyparser from'body-parser';
 import cors from 'cors';

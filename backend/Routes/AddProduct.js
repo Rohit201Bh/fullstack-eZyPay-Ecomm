@@ -1,11 +1,11 @@
 import express from'express';
 const router = express.Router();
-import ProductModel from '../Models/AddProductSchema.js';
+import Product from '../Models/AddProductSchema.js';
 
 router.post('/add', async (req, resp) => {
     try {
         const data = req.body;
-        const newProduct = new ProductModel(data);
+        const newProduct = new Product(data);
         await newProduct.save();
         resp.status(200).json({ message: "Product Added Successfully" });
     } catch (error) {
@@ -16,7 +16,7 @@ router.post('/add', async (req, resp) => {
 
 router.get('/read', async (req, resp) => {
     try {
-        const products = await ProductModel.find();
+        const products = await Product.find();
         resp.status(200).json({ products });
     } catch (error) {
         console.log("Error Found", error);
@@ -24,4 +24,4 @@ router.get('/read', async (req, resp) => {
     }
 });
 
-module.exports = router;
+export default router;
