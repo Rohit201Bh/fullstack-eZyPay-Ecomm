@@ -1,6 +1,6 @@
 import express from'express';
 const router = express.Router();
-import ProductModel from '../Models/AddProductSchema';
+import ProductModel from '../Models/AddProductSchema.js';
 
 router.post('/add', async (req, resp) => {
     try {
