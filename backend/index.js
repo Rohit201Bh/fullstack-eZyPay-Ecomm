@@ -4,6 +4,7 @@ import AddProduct from './Routes/AddProduct.js';
 import express from'express'
 const app = express()
 import './Models/database.js';
+import { fileURLToPath } from "url";
 
 import bodyparser from'body-parser';
 import cors from 'cors';
@@ -14,7 +15,10 @@ app.use(cors())
 app.use(express.json())
 
 import jwt from 'jsonwebtoken';
-const _dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 
 app.post('/api/register', async (req, resp) => {
@@ -56,17 +60,8 @@ app.post('/api/login', async (req, resp) => {
     }
 });
 
-app.use('/api/payment',payment)
-app.use('/api/addproduct',AddProduct)
-
-if (process.env.NODE_ENV == "production") {
-    app.use(express.static (path.join(__dirname, "../frontend/dist")));
-    app.get("*", (req, res) => {
-
-        res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
-    });
-}
-
+app.use('/api/payment',payment);
+app.use('/api/addproduct',AddProduct);
 
 app.listen(4800, () => {
     console.log('Running on port 4800');
