@@ -1,5 +1,5 @@
 import payment from './Routes/Payment.js';
-import User from'./Models/UserSchema.js';
+import User from './Models/UserSchema.js';
 import AddProduct from './Routes/AddProduct.js';
 import express from'express'
 const app = express()
